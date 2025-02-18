@@ -6,7 +6,7 @@ import jwt from "jsonwebtoken";
 export const isAdminAuthenticated = catchAsyncErrors(async (req, res, next) => {
   const token = req.cookies.adminToken;
   if (!token) {
-    return next(new ErrorHandler("Admin NOt Authenticated!,400"));
+    return next(new ErrorHandler("Admin NOt Authenticated!",400));
   }
   const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
   req.user = await User.findById(decoded.id);
@@ -28,7 +28,7 @@ export const isPatientAuthenticated = catchAsyncErrors(async (req, res, next) =>
     }
     const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
     req.user = await User.findById(decoded.id);
-    if (req.user.role !== "Pateint") {
+    if (req.user.role !== "Patient") {
       return next(
         new ErrorHandler(
           `${req.user.role} not authorised for this resources!`,
