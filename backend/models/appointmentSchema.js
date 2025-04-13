@@ -1,4 +1,5 @@
-import mongoose, { mongo } from "mongoose";
+import mongoose from "mongoose";
+import { Mongoose } from "mongoose";
 import validator from "validator";
 
 const appointmentSchema = new mongoose.Schema({

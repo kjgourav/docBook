@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 export const dbConnection = () => {
+    // eslint-disable-next-line no-undef
     mongoose.connect(process.env.MONGO_URI, {
          dbName : "MERN_STACK_HOSPITAL_MANAGEMENT_WEBSITE",
     
