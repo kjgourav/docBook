@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import  { useContext, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
 import Login from "./components/Login";
@@ -14,6 +14,7 @@ import AddNewAdmin from "./components/AddNewAdmin";
 import "./App.css";
 
 const App = () => {
+  // eslint-disable-next-line no-unused-vars
   const { isAuthenticated, setIsAuthenticated, admin, setAdmin } =
     useContext(Context);
 
@@ -34,7 +35,7 @@ const App = () => {
       }
     };
     fetchUser();
-  }, [isAuthenticated]);
+  }, [isAuthenticated, setAdmin, setIsAuthenticated]);
 
   return (
     <Router>
